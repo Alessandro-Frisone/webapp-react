@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { instance } from "../api/axios";
 import Heading from "../components/ui/Heading";
 import Review from "../components/Review";
+import FormAddReview from "../components/FormAddReview";
 
 export default function MoviePage() {
   const [movie, setMovie] = useState({});
@@ -60,6 +61,10 @@ export default function MoviePage() {
           </ul>
         </section>
       )}
+      <section className="mt-4 bg-white p-4 space-y-4">
+        <Heading level={3}>Aggiungi una recensione</Heading>
+        <FormAddReview fetchMovie={fetchMovie} />
+      </section>
     </div>
   );
 }

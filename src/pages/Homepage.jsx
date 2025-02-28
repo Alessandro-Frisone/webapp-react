@@ -50,7 +50,7 @@ function HomePage() {
                 {movie.title || "Titolo non disponibile"}
               </h2>
               <div className="w-full h-60 mb-4 overflow-hidden rounded-lg">
-                <img className="w-full h-full object-cover" src={movie.image} alt={movie.title} />
+                <img className="w-full h-full object-cover object-center" src={movie.image} alt={movie.title} style={{ minHeight: '240px' }} />
               </div>
               <p className="text-gray-400 mb-2">
                 <span className="font-semibold text-gray-300">Regista:</span> {movie.director || "Sconosciuto"}
