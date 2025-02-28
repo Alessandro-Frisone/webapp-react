@@ -10,7 +10,7 @@ const initialFormData = {
   image: undefined,
 };
 
-export default function CreateBook() {
+export default function CreateMovie() {
   const [formData, setFormData] = useState(initialFormData);
   const navigate = useNavigate();
 
