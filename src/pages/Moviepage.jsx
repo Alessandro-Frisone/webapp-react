@@ -2,8 +2,6 @@ import { useParams, useNavigate } from "react-router";
 import { useEffect, useState } from "react";
 import { instance } from "../api/axios";
 import Heading from "../components/ui/Heading";
-import Paragraph from "../components/ui/Paragraph";
-import Stars from "../components/ui/Stars";
 import Review from "../components/Review";
 
 export default function MoviePage() {
@@ -27,38 +25,35 @@ export default function MoviePage() {
   useEffect(fetchMovie, [id, navigate]);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-8 pt-24">
-      <div className="bg-white rounded-lg shadow-md p-10 max-w-4xl w-full space-y-8">
-        <h1 className="text-5xl font-bold text-gray-900 mb-6">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black p-10">
+      <div className="bg-gray-800 p-12 rounded-2xl shadow-2xl max-w-4xl w-full space-y-8 border border-gray-700">
+        <h1 className="text-6xl font-bold text-white mb-8">
           {movie.title || "Titolo non disponibile"}
         </h1>
-        <p className="text-lg text-gray-800">
-          <span className="font-semibold">Genere:</span> {movie.genre || "Sconosciuto"}
+        <p className="text-xl text-gray-300">
+          <span className="font-semibold text-gray-400">Genere:</span> {movie.genre || "Sconosciuto"}
         </p>
-        <p className="text-lg text-gray-800">
-          <span className="font-semibold">Regista:</span> {movie.director || "Sconosciuto"}
+        <p className="text-xl text-gray-300">
+          <span className="font-semibold text-gray-400">Regista:</span> {movie.director || "Sconosciuto"}
         </p>
-        <p className="text-lg text-gray-800">
-          <span className="font-semibold">Anno di rilascio:</span> {movie.release_year || "N/D"}
+        <p className="text-xl text-gray-300">
+          <span className="font-semibold text-gray-400">Anno di rilascio:</span> {movie.release_year || "N/D"}
         </p>
-        <p className="text-lg text-gray-800">
-          <span className="font-semibold">Trama:</span> {movie.abstract || "Sconosciuto"}
+        <p className="text-xl text-gray-300">
+          <span className="font-semibold text-gray-400">Trama:</span> {movie.abstract || "Sconosciuto"}
         </p>
         <button
           onClick={() => navigate("/")}
-          className="mt-4 w-full bg-gray-900 text-white py-3 rounded-md font-semibold shadow-md 
-                     hover:bg-gray-600 transition-all duration-300"
-        >
+          className="w-full bg-gradient-to-r from-purple-700 to-purple-900 text-white py-3 rounded-xl shadow-md font-semibold text-lg transform hover:scale-105 transition-transform duration-300">
           ⬅️ Torna alla Home
         </button>
       </div>
-
       {movie.reviews?.length > 0 && (
-        <section className="mt-12 bg-white p-8 rounded-lg shadow-md w-full max-w-4xl">
-          <Heading level={2} className="text-3xl font-bold text-gray-900 mb-6">Recensioni</Heading>
+        <section className="mt-16 bg-gray-800 p-10 rounded-2xl shadow-xl w-full max-w-4xl border border-gray-700">
+          <Heading level={2} className="text-white text-4xl mb-6">Recensioni</Heading>
           <ul>
-            {movie.reviews.map((review) => (
-              <li className="py-4 border-b border-neutral-300" key={review.id}>
+            {movie?.reviews?.map((review) => (
+              <li className="py-4 border-b border-neutral-600 text-white" key={review.id}>
                 <Review review={review} />
               </li>
             ))}

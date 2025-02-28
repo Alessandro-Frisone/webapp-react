@@ -1,7 +1,7 @@
 export default function Heading({ level, children, ...props }) {
     if (level === 1) {
       return (
-        <h1 className="text-4xl font-bold" {...props}>
+        <h1 className="text-4xl font-bold text-center" {...props}>
           {children}
         </h1>
       );
@@ -9,7 +9,7 @@ export default function Heading({ level, children, ...props }) {
   
     if (level === 2) {
       return (
-        <h2 className="text-3xl font-semibold" {...props}>
+        <h2 className="text-3xl font-semibold text-center" {...props}>
           {children}
         </h2>
       );
@@ -17,7 +17,7 @@ export default function Heading({ level, children, ...props }) {
   
     if (level === 3) {
       return (
-        <h3 className="text-2xl font-medium" {...props}>
+        <h3 className="text-2xl font-medium text-center" {...props}>
           {children}
         </h3>
       );
