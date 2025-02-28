@@ -49,6 +49,9 @@ function HomePage() {
               <h2 className="text-2xl font-bold text-gray-800 mb-2">
                 {movie.title || "Titolo non disponibile"}
               </h2>
+              <div className="w-1/2">
+                <img className="h-full object-cover" src={movie.image} alt={movie.title} />
+              </div>
               <p className="text-gray-700 mb-1">
                 <span className="font-semibold">Regista:</span> {movie.director || "Sconosciuto"}
               </p>

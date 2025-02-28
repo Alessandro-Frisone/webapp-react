@@ -1,6 +1,11 @@
 import { useParams, useNavigate } from "react-router";
 import { useEffect, useState } from "react";
 import { instance } from "../api/axios";
+import Heading from "../components/ui/Heading";
+import Paragraph from "../components/ui/Paragraph";
+import Stars from "../components/ui/Stars";
+import Review from "../components/Review";
+
 
 export default function MoviePage() {
   const [movie, setMovie] = useState({});
@@ -51,6 +56,24 @@ export default function MoviePage() {
           🎥 Guarda il Trailer
         </button>
       </div>
+      <div className="col-span-12 md:col-span-8 space-y-4 bg-white p-4">
+          <Heading level={1}>{movie.title}</Heading>
+          <Stars vote={movie.avg_vote} />
+          <Heading level={3}>{movie.author}</Heading>
+          <Paragraph>{movie.abstract}</Paragraph>
+        </div>
+      {movie.reviews?.length > 0 && (
+        <section className="mt-4 bg-white p-4 space-y-4">
+          <Heading level={2}>Recensioni</Heading>
+          <ul>
+            {movie?.reviews?.map((review) => (
+              <li className="py-2 border-b border-neutral-200" key={review.id}>
+                <Review review={review} />
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
     </div>
   );
 }
